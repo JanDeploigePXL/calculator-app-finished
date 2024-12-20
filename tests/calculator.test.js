@@ -1,3 +1,4 @@
+import {test, expect} from "@playwright/test";
 const request = require('supertest')
 const app = require('../app');
 
