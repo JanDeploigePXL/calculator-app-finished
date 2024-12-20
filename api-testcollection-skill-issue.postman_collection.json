@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "e4d57500-d603-461c-bf1f-6a5f315e140b",
+		"name": "api-testcollection-skill-issue",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35038680"
+	},
+	"item": [
+		{
+			"name": "getstudents",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response 200', function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"\r",
+							"pm.test('Contains right Data', function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"_id\")\r",
+							"    pm.expect(pm.response.text()).to.include(\"name\")\r",
+							"    pm.expect(pm.response.text()).to.include(\"age\")\r",
+							"    pm.expect(pm.response.text()).to.include(\"group\")\r",
+							"    pm.expect(pm.response.text()).to.include(\"__v\")\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "2TINDEVOPS",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "key",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://devops.d-ries.be/api/students",
+					"protocol": "https",
+					"host": [
+						"devops",
+						"d-ries",
+						"be"
+					],
+					"path": [
+						"api",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getspecificstudent",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "2TINDEVOPS",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "key",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://devops.d-ries.be/api/students/675c3759edd216ed50410532",
+					"protocol": "https",
+					"host": [
+						"devops",
+						"d-ries",
+						"be"
+					],
+					"path": [
+						"api",
+						"students",
+						"675c3759edd216ed50410532"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
